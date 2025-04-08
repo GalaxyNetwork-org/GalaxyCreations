@@ -1,4 +1,4 @@
 name: GalaxyCreations
-version: '1.0.0'
+version: '${version}'
 main: xyz.lncvrt.galaxycreations.GalaxyCreations
 api-version: '1.21'
