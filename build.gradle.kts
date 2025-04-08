@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "xyz.lncvrt"
-version = "1.0.0"
+version = "1.0.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -15,10 +15,14 @@ repositories {
     maven("https://oss.sonatype.org/content/groups/public/") {
         name = "sonatype"
     }
+    maven("https://repo.lncvrt.xyz/releases") {
+        name = "lncvrtRepositoryReleases"
+    }
 }
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
+    compileOnly("xyz.lncvrt:galaxyapi:1.0.0")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 }
 
@@ -27,19 +31,21 @@ kotlin {
     jvmToolchain(targetJavaVersion)
 }
 
-tasks.build {
-    dependsOn("shadowJar")
-}
-
-tasks.processResources {
-    val props = mapOf("version" to version)
-    inputs.properties(props)
-    filteringCharset = "UTF-8"
-    filesMatching("plugin.yml") {
-        expand(props)
+tasks {
+    build {
+        dependsOn("shadowJar")
     }
-}
 
-tasks.runServer {
-    minecraftVersion("1.21")
+    processResources {
+        val props = mapOf("version" to version)
+        inputs.properties(props)
+        filteringCharset = "UTF-8"
+        filesMatching("plugin.yml") {
+            expand(props)
+        }
+    }
+
+    runServer {
+        minecraftVersion("1.21")
+    }
 }

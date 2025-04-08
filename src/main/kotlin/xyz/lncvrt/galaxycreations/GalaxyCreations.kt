@@ -12,8 +12,4 @@ class GalaxyCreations : JavaPlugin() {
         server.pluginManager.registerEvents(PlayerJoinListener(this), this)
         server.pluginManager.registerEvents(ProjectileLaunchListener(), this)
     }
-
-    internal fun setPrefix(message: String): String {
-        return "<gradient:light_purple:dark_purple:light_purple><bold>GalaxyNetwork</gradient> <gray><bold>»</bold></gray> $message"
-    }
 }
