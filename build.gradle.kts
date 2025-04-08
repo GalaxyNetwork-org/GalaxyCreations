@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "xyz.lncvrt"
-version = "1.0.1"
+version = "1.0.2-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -32,6 +32,11 @@ kotlin {
 }
 
 tasks {
+    shadowJar {
+        archiveBaseName.set(rootProject.name)
+        archiveClassifier.set("")
+    }
+
     build {
         dependsOn("shadowJar")
     }
@@ -46,6 +51,6 @@ tasks {
     }
 
     runServer {
-        minecraftVersion("1.21")
+        minecraftVersion("1.21.4")
     }
 }
