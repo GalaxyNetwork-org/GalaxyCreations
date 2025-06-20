@@ -8,6 +8,7 @@ class GalaxyCreations : JavaPlugin() {
     internal val miniMessage = MiniMessage.miniMessage()
 
     override fun onEnable() {
+        server.pluginManager.registerEvents(EntityMoveListener(), this)
         server.pluginManager.registerEvents(PlayerInteractListener(), this)
         server.pluginManager.registerEvents(PlayerJoinListener(this), this)
         server.pluginManager.registerEvents(ProjectileLaunchListener(), this)
