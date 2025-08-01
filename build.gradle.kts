@@ -22,7 +22,7 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
-    compileOnly("xyz.lncvrt:galaxyapi:1.0.0")
+    compileOnly("xyz.lncvrt:galaxyapi:1.0.6")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 }
 
